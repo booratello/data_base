@@ -44,7 +44,8 @@ VALUES
 
 /* всё работает, но почему-то задваивает результат, я так и не понял, откуда у этого ноги растут. 
  * пришлось использовать DISTINCT */
-SELECT DISTINCT `fst`.`name`, `snd`.`name` FROM `flights` JOIN `cities` AS `fst` JOIN `cities` AS `snd`
+SELECT DISTINCT `fst`.`name` AS `from`, `snd`.`name` AS `to` 
+FROM `flights` JOIN `cities` AS `fst` JOIN `cities` AS `snd`
 ON  `fst`.`label` = `flights`.`from` AND `snd`.`label` = `flights`.`to`
 ORDER BY `flights`.`id`;
 
